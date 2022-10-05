@@ -18,7 +18,7 @@ jobs:
           out="$(cat test.txt)"
           out="${out//'%'/'%25'}" && out="${out//$'\n'/'%0A'}" && out="${out//$'\r'/'%0D'}" && \
           out="$(echo $out | sed 's|Refreshing state.||g')"
-          out="$(echo $out | sed 's|\\e[0m||g')"
+          out="$(echo $out | sed 's|\\e\[0m||g')"
           # out="${out//$'\e[0m'/'.'}" && \
           # out="${out//$'\e[1m'/'.'}" && out="${out//$'\e[31m'/'.'}" && \
           # out="${out//$'\e[32m'/'.'}" && out="${out//$'\e[33m'/'.'}" && \
