@@ -30,6 +30,7 @@ jobs:
           out="$(echo $out | sed 's|\\e\[33m||g')"
           out="$(echo $out | sed 's|\\e\[90m||g')"
           out="$(echo $out | sed 's|\[.*\]:||g')"
+          echo $out
           echo "::set-output name=plan::$out"
 
       - name: update pull request
