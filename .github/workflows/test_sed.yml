@@ -19,7 +19,6 @@ jobs:
         id: sed
         run: |
           # https://thekevinwang.com/2022/06/13/github-actions-survival-skills/
-
           # https://stackoverflow.com/questions/19109912/yaml-do-i-need-quotes-for-strings-in-yaml
           out="$(cat test.txt)"
           out="${out//'%'/'%25'}" && out="${out//$'\n'/'%0A'}" && out="${out//$'\r'/'%0D'}" && \
