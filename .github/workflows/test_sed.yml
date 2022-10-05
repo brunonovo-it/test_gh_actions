@@ -5,12 +5,14 @@ on:
       - main
 
 jobs:
-  print-tag:
+  test-sed:
     runs-on: ubuntu-latest
     steps:
     - name: step 1
       id: log
       run: |
+        pwd
+        ls -la
         out="$(cat test.txt)"
         out="${out//'%'/'%25'}" && out="${out//$'\n'/'%0A'}" && out="${out//$'\r'/'%0D'}" && \
         out="$(echo $out | sed 's/Refreshing state.//g')" && \
