@@ -1,92 +1,33 @@
-Showing: log/plan/group_gcp_on_call_trainees.log
-Current directory: .terraspace-cache/us-east1/staging/stacks/group_gcp_on_call_trainees
-=> terraform init -get -input=false >> /tmp/terraspace/log/init/group_gcp_on_call_trainees.log
-=> terraform plan -input=false -out group_gcp_on_call_trainees.plan
-Refreshing state... [id=freshbooks-staging/roles/cloudkms.admin/group:gcp-on-call-trainees@freshbooks.com]
-Refreshing state... [id=freshbooks-staging/roles/editor/group:gcp-on-call-trainees@freshbooks.com]
-Refreshing state... [id=freshbooks-staging/roles/logging.admin/group:gcp-on-call-trainees@freshbooks.com]
-Refreshing state... [id=freshbooks-staging/roles/owner/group:gcp-on-call-trainees@freshbooks.com]
-Refreshing state... [id=freshbooks-staging/roles/iam.serviceAccountUser/group:gcp-on-call-trainees@freshbooks.com]
-data.google_service_account_access_token.datadog_service_account_impersonation: Reading...
-Refreshing state... [id=freshbooks-staging/roles/compute.admin/group:gcp-on-call-trainees@freshbooks.com]
-Refreshing state... [id=freshbooks-staging/roles/resourcemanager.projectIamAdmin/group:gcp-on-call-trainees@freshbooks.com]
-data.google_service_account_access_token.datadog_service_account_impersonation: Read complete after 0s [id=projects/-/serviceAccounts/datadog-sa@freshbooks-staging-secrets.iam.gserviceaccount.com]
-data.google_secret_manager_secret_version.datadog_api_key: Reading...
-data.google_secret_manager_secret_version.datadog_app_key: Reading...
-data.google_secret_manager_secret_version.datadog_app_key: Read complete after 1s [id=projects/640743319969/secrets/datadog-app-key/versions/2]
-data.google_secret_manager_secret_version.datadog_api_key: Read complete after 1s [id=projects/640743319969/secrets/datadog-api-key/versions/2]
-
-Terraform used the selected providers to generate the following execution
-plan. Resource actions are indicated with the following symbols:
-  - destroy
-
-Terraform will perform the following actions:
-  # module.project-iam-bindings-freshbooks["roles/cloudkms.admin"].google_project_iam_member.project_iam_additive["default--roles/cloudkms.admin--group:gcp-on-call-trainees@freshbooks.com"] will be destroyed
-  # (because google_project_iam_member.project_iam_additive is not in configuration)
-  - resource "google_project_iam_member" "project_iam_additive" ***
-      - etag    = "BwXpLoIj4Bg=" -> null
-      - id      = "freshbooks-staging/roles/cloudkms.admin/group:gcp-on-call-trainees@freshbooks.com" -> null
-      - member  = "group:gcp-on-call-trainees@freshbooks.com" -> null
-      - project = "freshbooks-staging" -> null
-      - role    = "roles/cloudkms.admin" -> null
-    ***
-  # module.project-iam-bindings-freshbooks["roles/compute.admin"].google_project_iam_member.project_iam_additive["default--roles/compute.admin--group:gcp-on-call-trainees@freshbooks.com"] will be destroyed
-  # (because google_project_iam_member.project_iam_additive is not in configuration)
-  - resource "google_project_iam_member" "project_iam_additive" ***
-      - etag    = "BwXpLoIj4Bg=" -> null
-      - id      = "freshbooks-staging/roles/compute.admin/group:gcp-on-call-trainees@freshbooks.com" -> null
-      - member  = "group:gcp-on-call-trainees@freshbooks.com" -> null
-      - project = "freshbooks-staging" -> null
-      - role    = "roles/compute.admin" -> null
-    ***
-  # module.project-iam-bindings-freshbooks["roles/editor"].google_project_iam_member.project_iam_additive["default--roles/editor--group:gcp-on-call-trainees@freshbooks.com"] will be destroyed
-  # (because google_project_iam_member.project_iam_additive is not in configuration)
-  - resource "google_project_iam_member" "project_iam_additive" ***
-      - etag    = "BwXpLoIj4Bg=" -> null
-      - id      = "freshbooks-staging/roles/editor/group:gcp-on-call-trainees@freshbooks.com" -> null
-      - member  = "group:gcp-on-call-trainees@freshbooks.com" -> null
-      - project = "freshbooks-staging" -> null
-      - role    = "roles/editor" -> null
-    ***
-  # module.project-iam-bindings-freshbooks["roles/iam.serviceAccountUser"].google_project_iam_member.project_iam_additive["default--roles/iam.serviceAccountUser--group:gcp-on-call-trainees@freshbooks.com"] will be destroyed
-  # (because google_project_iam_member.project_iam_additive is not in configuration)
-  - resource "google_project_iam_member" "project_iam_additive" ***
-      - etag    = "BwXpLoIj4Bg=" -> null
-      - id      = "freshbooks-staging/roles/iam.serviceAccountUser/group:gcp-on-call-trainees@freshbooks.com" -> null
-      - member  = "group:gcp-on-call-trainees@freshbooks.com" -> null
-      - project = "freshbooks-staging" -> null
-      - role    = "roles/iam.serviceAccountUser" -> null
-    ***
-  # module.project-iam-bindings-freshbooks["roles/logging.admin"].google_project_iam_member.project_iam_additive["default--roles/logging.admin--group:gcp-on-call-trainees@freshbooks.com"] will be destroyed
-  # (because google_project_iam_member.project_iam_additive is not in configuration)
-  - resource "google_project_iam_member" "project_iam_additive" ***
-      - etag    = "BwXpLoIj4Bg=" -> null
-      - id      = "freshbooks-staging/roles/logging.admin/group:gcp-on-call-trainees@freshbooks.com" -> null
-      - member  = "group:gcp-on-call-trainees@freshbooks.com" -> null
-      - project = "freshbooks-staging" -> null
-      - role    = "roles/logging.admin" -> null
-    ***
-  # module.project-iam-bindings-freshbooks["roles/owner"].google_project_iam_member.project_iam_additive["default--roles/owner--group:gcp-on-call-trainees@freshbooks.com"] will be destroyed
-  # (because google_project_iam_member.project_iam_additive is not in configuration)
-  - resource "google_project_iam_member" "project_iam_additive" ***
-      - etag    = "BwXpLoIj4Bg=" -> null
-      - id      = "freshbooks-staging/roles/owner/group:gcp-on-call-trainees@freshbooks.com" -> null
-      - member  = "group:gcp-on-call-trainees@freshbooks.com" -> null
-      - project = "freshbooks-staging" -> null
-      - role    = "roles/owner" -> null
-    ***
-  # module.project-iam-bindings-freshbooks["roles/resourcemanager.projectIamAdmin"].google_project_iam_member.project_iam_additive["default--roles/resourcemanager.projectIamAdmin--group:gcp-on-call-trainees@freshbooks.com"] will be destroyed
-  # (because google_project_iam_member.project_iam_additive is not in configuration)
-  - resource "google_project_iam_member" "project_iam_additive" ***
-      - etag    = "BwXpLoIj4Bg=" -> null
-      - id      = "freshbooks-staging/roles/resourcemanager.projectIamAdmin/group:gcp-on-call-trainees@freshbooks.com" -> null
-      - member  = "group:gcp-on-call-trainees@freshbooks.com" -> null
-      - project = "freshbooks-staging" -> null
-      - role    = "roles/resourcemanager.projectIamAdmin" -> null
-    ***
-
-Plan: 0 to add, 0 to change, 7 to destroy.
-
-─────────────────────────────────────────────────────────────────────────────
-
-Saved the plan to: group_gcp_on_call_trainees.plan
+# Logfile created on 2022-10-05 14:45:11 -0300 by logger.rb/v1.5.0
+[2022-10-05T14:45:11 #81376 terraspace plan group_masterlock]: Current directory: .terraspace-cache/us-east1/staging/stacks/group_masterlock
+[2022-10-05T14:45:12 #81376 terraspace plan group_masterlock]: => terraform init -get -input=false >> /tmp/terraspace/log/init/group_masterlock.log
+[2022-10-05T14:45:21 #81376 terraspace plan group_masterlock]: => terraform plan -input=false
+[2022-10-05T14:45:25 #81376 terraspace plan group_masterlock]: [0m[1mdata.google_service_account_access_token.datadog_service_account_impersonation: Reading...[0m[0m
+[2022-10-05T14:45:25 #81376 terraspace plan group_masterlock]: [0m[1mgoogle_project_iam_member.memorystore-viewer: Refreshing state... [id=freshbooks-staging/roles/redis.viewer/group:masterlock@freshbooks.com][0m
+[2022-10-05T14:45:26 #81376 terraspace plan group_masterlock]: [0m[1mdata.google_service_account_access_token.datadog_service_account_impersonation: Read complete after 0s [id=projects/-/serviceAccounts/datadog-sa@freshbooks-staging-secrets.iam.gserviceaccount.com][0m
+[2022-10-05T14:45:26 #81376 terraspace plan group_masterlock]: [0m[1mdata.google_secret_manager_secret_version.datadog_api_key: Reading...[0m[0m
+[2022-10-05T14:45:26 #81376 terraspace plan group_masterlock]: [0m[1mdata.google_secret_manager_secret_version.datadog_app_key: Reading...[0m[0m
+[2022-10-05T14:45:27 #81376 terraspace plan group_masterlock]: [0m[1mdata.google_secret_manager_secret_version.datadog_app_key: Read complete after 1s [id=projects/640743319969/secrets/datadog-app-key/versions/2][0m
+[2022-10-05T14:45:27 #81376 terraspace plan group_masterlock]: [0m[1mdata.google_secret_manager_secret_version.datadog_api_key: Read complete after 1s [id=projects/640743319969/secrets/datadog-api-key/versions/2][0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: 
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: Terraform used the selected providers to generate the following execution
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: plan. Resource actions are indicated with the following symbols:
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]:   [31m-[0m destroy
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: [0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: Terraform will perform the following actions:
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: [1m  # google_project_iam_member.memorystore-viewer[0m will be [1m[31mdestroyed[0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]:   # (because google_project_iam_member.memorystore-viewer is not in configuration)[0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: [0m  [31m-[0m[0m resource "google_project_iam_member" "memorystore-viewer" {
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]:       [31m-[0m [0m[1m[0metag[0m[0m    = "BwXpLoIj4Bg=" [90m->[0m [0m[90mnull[0m[0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]:       [31m-[0m [0m[1m[0mid[0m[0m      = "freshbooks-staging/roles/redis.viewer/group:masterlock@freshbooks.com" [90m->[0m [0m[90mnull[0m[0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]:       [31m-[0m [0m[1m[0mmember[0m[0m  = "group:masterlock@freshbooks.com" [90m->[0m [0m[90mnull[0m[0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]:       [31m-[0m [0m[1m[0mproject[0m[0m = "freshbooks-staging" [90m->[0m [0m[90mnull[0m[0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]:       [31m-[0m [0m[1m[0mrole[0m[0m    = "roles/redis.viewer" [90m->[0m [0m[90mnull[0m[0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]:     }
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: 
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: [0m[1mPlan:[0m 0 to add, 0 to change, 1 to destroy.
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: [0m[90m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: ─────────────────────────────────────────────────────────────────────────────[0m
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: 
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: Note: You didn't use the -out option to save this plan, so Terraform can't
+[2022-10-05T14:45:29 #81376 terraspace plan group_masterlock]: guarantee to take exactly these actions if you run "terraform apply" now.
