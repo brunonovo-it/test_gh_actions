@@ -22,14 +22,15 @@ jobs:
           # https://stackoverflow.com/questions/19109912/yaml-do-i-need-quotes-for-strings-in-yaml
           out="$(cat test.txt)"
           out="${out//'%'/'%25'}" && out="${out//$'\n'/'%0A'}" && out="${out//$'\r'/'%0D'}" && \
-          out="$(echo $out | sed 's|Refreshing state.||g')"
-          out="$(echo $out | sed 's|\\e\[0m||g')"
-          out="$(echo $out | sed 's|\\e\[1m||g')"
-          out="$(echo $out | sed 's|\\e\[31m||g')"
-          out="$(echo $out | sed 's|\\e\[32m||g')"
-          out="$(echo $out | sed 's|\\e\[33m||g')"
-          out="$(echo $out | sed 's|\\e\[90m||g')"
+          out="$(echo $out | sed 's|Refreshing state.||g')" && \
+          out="$(echo $out | sed 's|\\e\[0m||g')" && \
+          out="$(echo $out | sed 's|\\e\[1m||g')" && \
+          out="$(echo $out | sed 's|\\e\[31m||g')" && \
+          out="$(echo $out | sed 's|\\e\[32m||g')" && \
+          out="$(echo $out | sed 's|\\e\[33m||g')" && \
+          out="$(echo $out | sed 's|\\e\[90m||g')" && \
           out="$(echo $out | sed 's|\[.*\]:||g')"
+          echo $out
           echo "::set-output name=plan::$out"
 
       - name: update pull request
@@ -38,7 +39,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const output = `#### Terraspace Plan 📖\`${{ steps.plan.outcome }}\`
             <details><summary>Show Plan</summary>
 
             \`\`\`
