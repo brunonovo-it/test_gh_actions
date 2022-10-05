@@ -1,0 +1,24 @@
+name: Test Sed
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    steps:
+    - name: step 1
+      id: log
+      run: |
+        out="$(cat test.txt)"
+        out="${out//'%'/'%25'}" && out="${out//$'\n'/'%0A'}" && out="${out//$'\r'/'%0D'}" && \
+        out="$(echo $out | sed 's/Refreshing state.//g')" && \
+        out="$(echo $out | sed 's/\e[0m//g')"
+        # out="${out//$'\e[0m'/'.'}" && \
+        # out="${out//$'\e[1m'/'.'}" && out="${out//$'\e[31m'/'.'}" && \
+        # out="${out//$'\e[32m'/'.'}" && out="${out//$'\e[33m'/'.'}" && \
+        # out="${out//$'Refreshing state.'/'.'}" && out="${out//$'... '/'...'}" && \
+        # out="${out//$'...'/'..'}" && out="${out//$'..'/'.'}" && out="${out//$'..'/'.'}"
+        echo $out
+        echo "::set-output name=plan::$out"
